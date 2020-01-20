@@ -1,0 +1,31 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+.img_pig {
+    width: 50%;
+    float: right;
+    margin: 20px;
+}
+
+.circle {
+    position: absolute;
+}
+
+.shape {
+    vertical-align: top;
+}
+
+figcaption {
+    outline: 1px solid darkgrey;
+    padding: 5px;
+    background-color: lightgrey;
+    min-width: 140px;
+    font: normal 10pt 'Courier New';
+}
+
+figure {
+    display: inline-block;
+    position: absolute;
+}

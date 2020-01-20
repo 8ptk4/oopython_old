@@ -1,0 +1,28 @@
+{% include 'header.html' %}
+<div class="container">
+    <div class="page-header">
+        <h1>Skapa Former</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <h3>
+                    {% for mes in message %}
+                        {{ mes }}
+                    {% endfor %}
+                </h3>
+        </center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+            <h3>Skapa Form</h3>
+            {% include 'forms/add_shape.html' %}
+        </div>
+        <div class="col-md-7 col-md-offset-1">
+            <h3>Tillagda Former</h3>
+            {% include 'tables/show_shapes.html' %}
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}

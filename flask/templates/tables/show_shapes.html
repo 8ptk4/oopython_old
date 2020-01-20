@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Shape type</th>
+            <th>Width (px)</th>
+            <th>Height (px)</th>
+            <th>Left (px)</th>
+            <th>Top (px)</th>
+            <th>Background color</th>
+        </tr>
+    </thead>
+<tbody>
+    {% for shape in shapes %}
+        <tr>
+            <td>{{ shape.get_shape_type() }}</td>
+            <td>{{ shape.get_width() }}</td>
+            <td>{{ shape.get_height() }}</td>
+            <td>{{ shape.get_left() }}</td>
+            <td>{{ shape.get_top() }}</td>
+            <td>{{ shape.get_color() }}</td>
+        </tr>
+    {% endfor %}
+</tbody>
+</table>

@@ -1,0 +1,22 @@
+{
+    "details": "Generated for paka17 at 2018-01-23 16:24:31.",
+    "key": "1c84c38585a2695f690f5a29fa96b81a",
+    "summary": {
+        "questions": 4,
+        "points": 8,
+        "pass": 8.0,
+        "passdistinct": 8.0
+    },
+    "points": {
+        "1.1": 2,
+        "1.2": 2,
+        "1.3": 2,
+        "1.4": 2
+    },
+    "answers": {
+        "1.1": "228474-2825",
+        "1.2": "Name: Zimba SSN: 228474-2825 Address: Katar Blekinge Illian",
+        "1.3": "Name: Ove SSN: 930807-7536 Address: Katar Skane Illian Courses: htmlphp, ramverk1, design",
+        "1.4": 3.5
+    }
+}

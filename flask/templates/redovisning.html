@@ -1,0 +1,85 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    <div class="page-header">
+
+        <h1>Redovisningar</h1>
+
+        <h3>Kmom01</h3>
+        <ol>
+            <li>Vilken utvecklingsmiljö använder du?</li>
+            <li>Var det några problem med att installera Flask?</li>
+            <li>Är du bekant med objekt och klasser sedan tidigare?</li>
+            <li>Har du någon erfarenhet av Bootstrap sedan tidigare?</li>
+            <li>Gick det bra att komma i gång med kursmomentet, var det lagom, för litet, för stort?</li>
+            <li>Vilken del av kursmaterialet (böcker, artiklar, videor, etc) uppskattade du mest?</li>
+        </ol>
+
+        <p>
+            Började OOPython kursens första kursmoment med att läsa igenom alla läsanvisningar och kolla
+            igenom videos. Hade lite svårt för video 3 - Object-oriented programming av Brian Will då hans
+            röst är lite jobbig att lyssna på, så den hoppade jag över. Annars tycker jag det var bra läsning,
+            boken tordes läsas igenom en gång till då det blir ganska mycket i första läsningen. Men dem små
+            artiklarna var riktigt bra. </p>
+        <p>
+            Då jag inte behövde göra något med labbmiljön eftersom jag har allt installerat sen tidigare
+            (cygwin, atom, git, python, chrome/firefox, xampp) så hoppade jag raskt vidare till övningarna.
+            Det var inga konstigheter med övningarna heller, det gick bra att både installera Flask och Jinja2.
+            Att sätta upp applikationen var inte heller något konstigt, då allt står väldigt bra förklarat.
+            Att få applikationen att köras från CGI skriptet funkar klockrent på studenservern, på min lokala
+            apache webbserver fungerar det inte, men det ska jag ta och fixa vid senare tillfälle.</p>
+        <p>
+            Känner igen front-end ramverket bootstrap som applikationen använder sig utav, och förstår hur man använder
+            dess inbyggda klasser för att styra element på sidan. Kan inte påstå att jag jobbat mycket med det tidigare
+            men känns ganska snällt att jobba med. Är inte super säker på objekt och klasser. Det lilla jag kommit i
+            kontakt med begreppet objekt är i javascript kursen, så det ska bli kul att gräva sig ner djupare inom området. </p>
+        <p> Måste även nämna att labben var riktigt bra, känns som jag fick med mig mycket nyttigt därifrån. Det var någon
+            uppgift mot slutet som jag kämpade med, men lyckades ganska snart lösa den. </p>
+
+
+        <h3>Kmom02</h3>
+        <ol>
+            <li>Kan du ge exempel på något användningsområde där objektorientering och arv hade passat bra?</li>
+            <li>Förstod du de olika relationerna och skillnaden på dem?</li>
+            <li>Är du bekant med metoderna GET och POST sedan tidigare?</li>
+            <li>Hur tyckte du det gick med formulärhantering i Flask?</li>
+            <li>Gick det bra att komma i gång med kursmomentet, var det lagom, för litet, för stort?</li>
+            <li>Gjorde du extrauppgiften i “Skapa former”?</li>
+            <li>Vilken del av kursmaterialet (böcker, artiklar, videor, etc) uppskattade du mest?</li>
+        </ol>
+        <p>
+            Vad ska man säga, den här uppgiften gjorde mig lite smått tokig. Inte för att det nödvändigtvis var specielt svårt. Men
+            det var mycket att förstå och hur man ska strukturera upp koden för allt att fungera. Och som vanligtvis så försöker man
+            göra mer än vad som egentligen bara krävs av uppgiften. Men, jag hittade tillslut en lösning och det var inte den lösning
+            jag från början var ute efter. Det blir inte alls så DRY som jag önskar, och hanteringen utav "felmeddelanden" känns
+            inte som mest elegant, men jag lyckades verkligen inte på något annat sätt än att använda mig utav en list. Krävdes inte
+            allt för mycket för att göra Shape classerna vilket man kanske kunde tro från början, det krångliga var att förstå punkt 3
+            i uppgiften "Basklassen ska kräva att metoderna get_area() och validate() implementeras.". Så gick igenom all text för
+            kursmomentet återigen och där hittade jag vad jag letade efter, (raise NotImplementedError) som helt enkelt tvingar Child
+            klasser att överskugga NotImplementedError metoderna.
+
+            Jag ser verkligen användandet utav objektorientering och arv, känns som det passar in i dem flesta användningsområden
+            och skulle tro att dem flesta just också använder sig utav det. Men för att ta ett exempel, ett Zoo som för statistik
+            över alla sina djur.
+
+            Efter onsdagens föreläsning då Andreas förklarade dem olika typer av relationer som existerar så fick man sig en ganska
+            bra uppfattning utav vad dem handlar om. Det tar nog ett tag att få in det men förståelsen finns där. Det finns fyra
+            relationer Arv, Aggregation, Komposition och Association. Vet inte riktigt om jag förstår skillnaderna riktigt ännu, kommer
+            nog behöva kolla på klippet några gånger tills jag förstår det helt och hållet, speciellt komposition och aggregation.
+
+            GET och POST har vi jobbat med tidigare och jag vet hur man använder dem, men det jag var mer nyfiken nu på var vad som
+            händer i bakgrunden med request och URI och hur allt hänger ihop. Men förstod ganska snabbt hur man fick tag i form datan
+            och kunna jobba med det i uppgiften tack vare övningen.
+
+            Jag tycker detta kursmoment var riktigt jobbigt och kan inte förstå varför vi inte hade en genomgång utav flask, jinja,
+            forms, handler hur allt hänger ihop... Det var ju inte riktigt att skapa shape classen som var det svåra utan det var
+            allt runtomkring.
+
+            Jag gjorde inga extrauppgifter.
+
+            I detta kursmoment gav videorna mig absolut mest, då det blir väldigt mycket nya begrepp och allmänt rörigt i texterna.
+        </p>
+    </div>
+</div>
+
+{% include 'footer.html' %}

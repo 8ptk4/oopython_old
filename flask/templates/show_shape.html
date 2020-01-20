@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+
+
+            {% for shape in shapes %}
+                <figure style="left: {{ shape.get_left() }}px; top: {{ shape.get_top() }}px">
+                    <div class="shape" style="{{ shape.draw_shape() }}"></div>
+                    <figcaption>
+                        Width: {{ shape.get_width() }}px
+                        <br>
+                        Height: {{ shape.get_height() }}px
+                        <br>
+                        Area: {{ shape.get_area() }}px<SUP>2</SUP>
+                    </figcaption>
+                </figure>
+            {% endfor %}
+
+
+{% include 'footer.html' %}
