@@ -11,13 +11,18 @@ class Deck:
         self.deck = []
 
     def shuffle(self):
+        """Shuffles card deck"""
+
         random.shuffle(self.deck)
 
     def build_deck(self):
-        self.deck = []
+        """Creates deck with 52 cards"""
+
         for suit in range(4):
             for value in range(1, 14):
                 self.deck.append(Card(value, suit))
-    
+
     def split_deck(self):
+        """Split deck in half"""
+
         return (self.deck[:26], self.deck[26:])
