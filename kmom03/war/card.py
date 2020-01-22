@@ -10,4 +10,4 @@ class Card:
         self.suit = suit
 
     def __repr__(self):
-        return "{} {}".format(self.names[self.value], self.suits[self.suit])
+        return "{} of {}".format(self.names[self.value], self.suits[self.suit])

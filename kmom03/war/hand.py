@@ -8,13 +8,15 @@ class Hand:
     def show_name(self):
         return self.name
 
-    # def add_card(self, added_cards):
-    #    self.cards.extend(added_cards)
+    def add_card(self, added_cards):
+        self.hand.extend(added_cards)
     
-    # def remove_card(self):
-    #    return self.cards.pop()
+    def remove_card(self):
+        return self.hand.pop()
+
+    def remaining_cards(self):
+        return str(len(self.hand))
 
     def show_hand(self):
         return "{}".format(self.hand)
-        # print(self.name, self.hand)
 
