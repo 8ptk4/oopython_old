@@ -1,6 +1,11 @@
+#!/usr/bin/python3
+"""Game of War - KMOM03"""
+
 class Card:
+    """CARD CLASS"""
+
     names = [None, "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack",
-    "Queen", "King"]
+             "Queen", "King"]
     suits = ["Heart", "Spades", "Diamond", "Clover"]
 
     def __init__(self, value, suit):

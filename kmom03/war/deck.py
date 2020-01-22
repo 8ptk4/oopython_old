@@ -1,7 +1,12 @@
+#!/usr/bin/python3
+"""Game of War - KMOM03"""
+
 import random
 from card import Card
 
 class Deck:
+    """CLASS DECK"""
+
     def __init__(self):
         self.deck = []
 

@@ -1,6 +1,11 @@
+#!/usr/bin/python3
+"""Game of War - KMOM03"""
+
 from deck import Deck
 
 class Hand:
+    """CLASS HAND"""
+
     def __init__(self, name, hand):
         self.name = name
         self.hand = hand
@@ -9,8 +14,8 @@ class Hand:
         return self.name
 
     def add_card(self, added_cards):
-        self.hand.extend(added_cards)
-    
+        self.hand[:0] = added_cards
+
     def remove_card(self):
         return self.hand.pop()
 

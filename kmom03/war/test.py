@@ -1,4 +1,8 @@
+#!/usr/bin/python3
+"""Game of War - unittest - KMOM03"""
+
 import unittest
+# IMPORTERA RÄTTA CLASSES
 from classes import Card, Deck
 
 class TestCard(unittest.TestCase):
