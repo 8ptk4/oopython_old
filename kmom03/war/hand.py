@@ -10,11 +10,6 @@ class Hand:
         self.name = name
         self.hand = hand
 
-    def show_name(self):
-        """Return name of the player"""
-
-        return self.name
-
     def add_card(self, added_cards):
         """Add cards to the hand, add them to the bottom"""
 

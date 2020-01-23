@@ -8,11 +8,12 @@ class Deck:
     """CLASS DECK"""
 
     def __init__(self):
+        self.shuffled = 0
         self.deck = []
 
     def shuffle(self):
         """Shuffles card deck"""
-
+        self.shuffled += 1
         random.shuffle(self.deck)
 
     def build_deck(self):
