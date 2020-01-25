@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """Game of War - KMOM03"""
 
-from deck import Deck
-
 class Hand:
     """CLASS HAND"""
 

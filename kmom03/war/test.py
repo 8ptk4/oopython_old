@@ -6,6 +6,7 @@ import unittest
 from card import Card
 from deck import Deck
 from hand import Hand
+from war import War
 
 class TestDeck(unittest.TestCase):
     """ Submodule for unittests, derives from unittest.TestCase """
@@ -89,10 +90,19 @@ class TestHand(unittest.TestCase):
         self.assertEqual(len(self.hand.hand), 7)
         self.assertEqual(self.hand.hand[0], "5 of Diamond")
 
-    def test_play_card(self):
+    def test_played_card(self):
         """ Test playing card is the top card of the hand """
 
+        self.assertEqual(len(self.hand.hand), 4)
+        played_card = self.hand.remove_card()
+        self.assertEqual(len(self.hand.hand), 3)
+        self.assertEqual(played_card, "10 of Diamond")
 
+    def test_cards_remaining_after_round(self):
+        """ After playing a card test so remain cards is correct """
+
+        self.hand.remove_card()
+        self.assertEqual(self.hand.remaining_cards(), str(len(self.hand.hand)))
 
 if __name__ == "__main__":
     unittest.main()

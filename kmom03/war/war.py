@@ -6,6 +6,7 @@ from hand import Hand
 
 class War:
     """DOCSTRING FOR HAPPINESS"""
+
     def __init__(self):
         self.card_stack_player = []
         self.card_stack_computer = []
