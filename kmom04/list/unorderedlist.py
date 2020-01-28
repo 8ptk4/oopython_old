@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 from node import Node
+from errors import IndexErrorException
+from errors import ValueErrorException
 
 class UnorderedList:
     """ Unordered list class"""
@@ -49,12 +51,37 @@ class UnorderedList:
         return i
 
     def get(self, index): # data
-        """ Return value at a specific index """
-        pass
+        """ Return value at a specific index else raise an exception """
+
+        current_node = self.head
+
+        i = 0
+        while current_node is not None:
+            if int(i) == int(index):
+                return current_node.data
+            
+            i += 1
+            current_node = current_node.next
+
+        raise IndexErrorException("Error: Out of index")
+
 
     def index_of(self, data): # Integer
         """ Return the index of a specific value, if values doesnt excist raise exception """
-        pass
+        
+        current_node = self.head
+
+        i = 0
+        while current_node is not None:
+            if current_node.data == data:
+                return i
+
+            i += 1
+            current_node = current_node.next
+
+        raise ValueErrorException("ValueError: No index with that value")
+
+
 
     def print_list(self):
         """ Output all the values in the list """
@@ -65,6 +92,8 @@ class UnorderedList:
             i += 1
             print("{}: {}".format((i - 1), current_node.data), end=" ")
             current_node = current_node.next
+
+
 
     def remove(self, data):
         """ Remove node matching a specific value, if values doesnt excist raise exception """
@@ -83,4 +112,4 @@ class UnorderedList:
             previous_node = current_node
             current_node = current_node.next
         
-        # Exception here..
+        raise ValueErrorException("ValueError: Value doesnt excist")

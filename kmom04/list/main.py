@@ -2,6 +2,8 @@
 
 import sys
 from unorderedlist import UnorderedList
+from errors import IndexErrorException
+from errors import ValueErrorException
 
 class Handler:
     """
@@ -14,6 +16,11 @@ class Handler:
         self.my_list = UnorderedList()
         self.start()
 
+    def frame(self, output):
+        print("---------------------------------------------------------------")
+        print(output)
+        print("---------------------------------------------------------------")
+    
     def start(self):
         """ Start """ 
         
@@ -28,7 +35,6 @@ class Handler:
 [7] Show index of a specific value
 [8] Show all values in the list
 [9] Remove node that match value
-
 [exit] Exit
             """)
             val = input('What do you want to do ? \n>>> ')
@@ -36,10 +42,11 @@ class Handler:
             if val == "1":
                 print("\nCheck if the list is empty:")
                 res = self.my_list.is_empty()
-                print(res)
+                self.frame(res)
             elif val == "2":
-                print("\nAdd value last in list:\n")
+                print("\nAdd value last in list:")
                 data = input(">>> ")
+                self.frame("{} added to the list!".format(data))
                 self.my_list.add(data)
             elif val == "3":
                 print("\nInsert value at a specific index:\n")
@@ -54,29 +61,42 @@ class Handler:
                 #except EmptyQueueException as e:
                  #   print(e)
             elif val == "5":
-                print("\nShow size of list\n")
+                print("\nShow size of list")
                 res = self.my_list.size()
-                print(res)
+                self.frame(res)
             elif val == "6":
                 print("\nShow value at a specific index\n")
-                #print(self.myList.is_empty())
+                data = input(">>> ")
+                try:
+                    res = self.my_list.get(data)
+                    print(res)
+                except IndexErrorException as e:
+                    print(e)
             elif val == "7":
                 print("\nShow index of a specific value\n")
-                #try:
-                #    self.myList.traverse()
-                #except EmptyQueueException as e:
-                #    print(e)
+                data = input(">>> ")
+                try:
+                    res = self.my_list.index_of(data)
+                    self.frame(res)
+                except ValueErrorException as e:
+                    self.frame(e)
             elif val == "8":
-                print("\nShow all values in the list\n")
+                print("\nShow all values in the list")
+                print("---------------------------------------------------------------")
                 self.my_list.print_list()
+                print("\n---------------------------------------------------------------")
             elif val == "9":
                 print("\nRemove node that match value\n")
                 data = input(">>> ")
-                self.my_list.remove(data)
+                try:
+                    self.my_list.remove(data)
+                    self.frame("{} removed from the list!".format(data))
+                except ValueErrorException as e:
+                    self.frame(e)
             elif val == "exit":
                 sys.exit()
             else:
-                print("Finns inget val för detta buuuu")
+                self.frame("No choice that match! try again")
 
 
 if __name__ == "__main__":
