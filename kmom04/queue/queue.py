@@ -1,17 +1,30 @@
 #!/usr/bin/python3
+""" Queue - KMOM04 """
 
 from node import Node
 from errors import EmptyQueueException
 
+
+
 class Queue:
+    """ Queue Class """
+
+
+
     def __init__(self):
+        """ Initialize class """
+    
         self.head = None
         self.tail = None
+
+
 
     def is_empty(self):
         """ Check if queue is empty """
         
         return self.head == None
+
+
 
     def enqueue(self, value):
         """ Add node to queue according to FIFO """
@@ -26,6 +39,8 @@ class Queue:
         if self.head == None:
             self.head = new_node
 
+
+
     def traverse(self):
         """ Traverse the nodes and list all Node values in Queue"""
 
@@ -38,6 +53,8 @@ class Queue:
             print(current_node.data)
             current_node = current_node.next
 
+
+
     def dequeue(self):
         """ Remove the last node from queue  """
 
@@ -49,6 +66,8 @@ class Queue:
 
         return value
 
+
+
     def peek(self):
         """ Peek the next """
 
@@ -56,6 +75,8 @@ class Queue:
             raise EmptyQueueException("Empty queue.")
 
         return self.head.data
+
+
 
     def peek_current(self):
         """ Peek the current value """
@@ -65,8 +86,10 @@ class Queue:
 
         return self.tail.data
 
+
+
     def size(self):
-        """ """
+        """ Size of the queue """
 
         current_node = self.head
         items = 0

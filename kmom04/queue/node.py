@@ -1,9 +1,12 @@
 #!/usr/bin/python3
+""" Queue - KMOM04 """
+
+
 
 class Node:
-    """
-    Node class
-    """
+    """ Node class """
+
+
 
     def __init__(self, data, next=None):
         """
