@@ -113,45 +113,65 @@ class TestSort(unittest.TestCase):
         """ Create list """
 
         self.unordered_list = UnorderedList()
-        self.unordered_list.add("8")
-        self.unordered_list.add("2")
-        self.unordered_list.add("4")
-    
+
     def tearDown(self):
         """ Remove dependencies after test """
 
-        lst = []
+        self.unordered_list = []
     
-    def test_bubble_sort(self):
+    def test_list_ordered(self):
         """ Test Bubble Sort """
-        # 1. Testa så listan sorteras.. Minst till högs, a - ö
+
+        self.unordered_list.add(8)
+        self.unordered_list.add(2)
+        self.unordered_list.add(4)
 
         # First test so the unordered list is following the pattern
         # 8 -> 2 -> 4
         current_node = self.unordered_list.head
-        self.assertEqual(current_node.data, "8")
+        self.assertEqual(current_node.data, 8)
         current_node = current_node.next
-        self.assertEqual(current_node.data, "2")
+        self.assertEqual(current_node.data, 2)
         current_node = current_node.next
-        self.assertEqual(current_node.data, "4")
+        self.assertEqual(current_node.data, 4)
 
         # Bubble sort the list order should now be
         # 2 -> 4 -> 8
         bubble_sort(self.unordered_list)
 
         current_node = self.unordered_list.head
-        self.assertEqual(current_node.data, "2")
+        self.assertEqual(current_node.data, 2)
         current_node = current_node.next
-        self.assertEqual(current_node.data, "4")
+        self.assertEqual(current_node.data, 4)
         current_node = current_node.next
-        self.assertEqual(current_node.data, "8")
+        self.assertEqual(current_node.data, 8)
+    
+    def test_list_ordered_str(self):
+        """ Test Bubble Sort with string values """
 
+        self.unordered_list.add("c")
+        self.unordered_list.add("b")
+        self.unordered_list.add("a")
+        
+        # First test so the unordered list is following the pattern
+        # c -> b -> a
+        current_node = self.unordered_list.head
+        self.assertEqual(current_node.data, "c")
+        current_node = current_node.next
+        self.assertEqual(current_node.data, "b")
+        current_node = current_node.next
+        self.assertEqual(current_node.data, "a")
 
+        # Bubble sort the list order should now be
+        # a -> b -> c
+        bubble_sort(self.unordered_list)
 
-
-
-
-
+        current_node = self.unordered_list.head
+        self.assertEqual(current_node.data, "a")
+        current_node = current_node.next
+        self.assertEqual(current_node.data, "b")
+        current_node = current_node.next
+        self.assertEqual(current_node.data, "c")
 
 if __name__ == "__main__":
     unittest.main()
