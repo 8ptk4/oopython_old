@@ -14,6 +14,7 @@ class UnorderedList:
     def __init__(self):
         """ Initialize list head """
         self.head = None
+        self.temp = None
 
 
 
@@ -63,6 +64,7 @@ class UnorderedList:
         if index == 0:
             self.head = new_node
             new_node.next = current_node
+
         elif i == index:
             previous_node.next = new_node
             new_node.next = current_node
@@ -73,13 +75,13 @@ class UnorderedList:
         """ Replace value at a specific index, raise exception if index doesnt excist """
 
         current_node = self.head
-
         i = 0
     
         if index > (self.size() - 1) or index < 0:
             raise IndexErrorException("Error: Index doesnt exist")
 
         while current_node is not None:
+
             if i == index:
                 current_node.data = data
         
@@ -92,8 +94,8 @@ class UnorderedList:
         """ Return amount of elements in the list """
     
         current_node = self.head
-        
         i = 0
+
         while current_node is not None:
             i += 1
             current_node = current_node.next
@@ -140,14 +142,14 @@ class UnorderedList:
         """ Output all the values in the list """
 
         current_node = self.head
-        container = []
+        
+        s = ''
 
         while current_node is not None:
-            container.append(current_node.data)
+            s += str(current_node.data) + " -> "
             current_node = current_node.next
 
-        return container
-
+        print(s[:-4])
 
 
 
@@ -158,11 +160,15 @@ class UnorderedList:
         previous_node = None
 
         while current_node is not None:
+
             if data == current_node.data:
+
                 if previous_node is None:
                     self.head = current_node.next
+
                 else:
                     previous_node.next = current_node.next
+
                 return
 
             previous_node = current_node

@@ -5,6 +5,7 @@ import unittest
 from unorderedlist import UnorderedList
 from errors import IndexErrorException
 from errors import ValueErrorException
+from sort import bubble_sort
 from node import Node
 
 class TestUnorderedList(unittest.TestCase):
@@ -103,6 +104,53 @@ class TestUnorderedList(unittest.TestCase):
         # After removing last item in list, the list shall be emtpy
         self.unordered_list.remove("Karlsson")
         self.assertEqual(self.unordered_list.is_empty(), True)
+
+
+class TestSort(unittest.TestCase):
+    """ Submodule for unittests, derives from unittest.TestCase """
+
+    def setUp(self):
+        """ Create list """
+
+        self.unordered_list = UnorderedList()
+        self.unordered_list.add("8")
+        self.unordered_list.add("2")
+        self.unordered_list.add("4")
+    
+    def tearDown(self):
+        """ Remove dependencies after test """
+
+        lst = []
+    
+    def test_bubble_sort(self):
+        """ Test Bubble Sort """
+        # 1. Testa så listan sorteras.. Minst till högs, a - ö
+
+        # First test so the unordered list is following the pattern
+        # 8 -> 2 -> 4
+        current_node = self.unordered_list.head
+        self.assertEqual(current_node.data, "8")
+        current_node = current_node.next
+        self.assertEqual(current_node.data, "2")
+        current_node = current_node.next
+        self.assertEqual(current_node.data, "4")
+
+        # Bubble sort the list order should now be
+        # 2 -> 4 -> 8
+        bubble_sort(self.unordered_list)
+
+        current_node = self.unordered_list.head
+        self.assertEqual(current_node.data, "2")
+        current_node = current_node.next
+        self.assertEqual(current_node.data, "4")
+        current_node = current_node.next
+        self.assertEqual(current_node.data, "8")
+
+
+
+
+
+
 
 
 if __name__ == "__main__":

@@ -99,9 +99,7 @@ class Handler:
             elif val == "8":
                 print("\nShow all values in the list:")
                 
-                res = self.my_list.print_list()
-
-                print(res)
+                self.my_list.print_list()
 
             elif val == "9":
                 print("\nRemove node by value:")
@@ -113,18 +111,15 @@ class Handler:
                     print(e)
 
             elif val == "10":
-                print("Sort list with Insertion Sort")
-                res = self.my_list.print_list()
-                insertion = insertion_sort(res)
-
-                print(insertion)
+                print("\nSort list with Insertion Sort")
+                insertion_sort(self.my_list)
+                print("Unordered List is now sorted with Insertion Sort")
             
             elif val == "11":
                 print("Sort list with Bubble Sort")
-                res = self.my_list.print_list()
-                bubble = bubble_sort(res)
+                bubble_sort(self.my_list)
                 
-                print(bubble)
+                #print(bubble)
     
             elif val == "exit":
                 sys.exit()
