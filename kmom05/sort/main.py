@@ -113,13 +113,12 @@ class Handler:
             elif val == "10":
                 print("\nSort list with Insertion Sort")
                 insertion_sort(self.my_list)
-                print("Unordered List is now sorted with Insertion Sort")
+                print(">> Unordered List now sorted with Insertion Sort <<")
             
             elif val == "11":
                 print("Sort list with Bubble Sort")
                 bubble_sort(self.my_list)
-                
-                #print(bubble)
+                print(">> Unordered List now sorted with Bubble Sort <<")
     
             elif val == "exit":
                 sys.exit()
