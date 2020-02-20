@@ -8,6 +8,7 @@ class War:
     """DOCSTRING FOR HAPPINESS"""
 
     def __init__(self):
+        self.collected_stack = []
         self.card_stack_player = []
         self.card_stack_computer = []
         self.introduction()
@@ -31,7 +32,8 @@ class War:
         print("")
         self.player = Hand(name, self.deck2)
 
-    def card_value(self, value):
+    @classmethod
+    def card_value(cls, value):
         """Convert named cards into their value"""
 
         switcher = {
@@ -46,7 +48,7 @@ class War:
     def take_stacks(self, player):
         """
         Take each player card stack after winning round
-        always take own stack and add the opponent stack 
+        always take own stack and add the opponent stack
         """
 
         self.collected_stack = self.card_stack_player + self.card_stack_computer
@@ -57,14 +59,17 @@ class War:
             self.computer.add_card(self.collected_stack)
 
     def score(self, player):
-        """Display a message after winning a round and empty the stacks on table"""
+        """
+        Display a message after winning a round and empty the stacks on table
+        """
 
         self.card_stack_player[:] = []
         self.card_stack_computer[:] = []
         print("\n>>> {} won and this round picked upp {} cards <<<\n".format(
             player, len(self.collected_stack)))
 
-    def introduction(self):
+    @classmethod
+    def introduction(cls):
         """Game logo"""
 
         print("""
@@ -83,10 +88,13 @@ class War:
     def cards_on_hand(self):
         """Check who win based on first player that reaches 0 cards on hand"""
 
-        if len(self.player.hand) == 0:
+        player_cards = len(self.player.hand)
+        computer_cards = len(self.computer.hand)
+
+        if player_cards == 0:
             print("Computer won the game! Try again!")
             return False
-        elif len(self.computer.hand) == 0:
+        elif computer_cards == 0:
             print("{} won the game! Congratulations!".format(self.player.name))
             return False
 
@@ -100,7 +108,7 @@ class War:
             i += 1
 
             print("Round {}".format(i))
-            print("---------------------------------------------------------------")
+            print("-----------------------------------------------------------")
 
             player_removed_card = self.player.remove_card()
             self.card_stack_player.append(player_removed_card)
@@ -114,20 +122,26 @@ class War:
             computer_removed_card = self.computer.remove_card()
             self.card_stack_computer.append(computer_removed_card)
 
-            print("{} draws {}".format(self.computer.name, computer_removed_card))
+            print("{} draws {}".format(self.computer.name,
+                                       computer_removed_card))
             print("{} has {} cards left on hand".format(
                 self.computer.name, self.computer.remaining_cards()))
-            print("---------------------------------------------------------------")
+            print("-----------------------------------------------------------")
 
-            if str(player_removed_card).split(" ")[-1] == str(computer_removed_card).split(" ")[-1]:
-                if int(self.card_value(str(player_removed_card).split(" ")[0])) > int(
-                        self.card_value(str(computer_removed_card).split(" ")[0])):
+            if str(player_removed_card).split(" ")[-1] == str(
+                    computer_removed_card).split(" ")[-1]:
+                if int(self.card_value(str(
+                        player_removed_card).split(" ")[0])) > int(
+                            self.card_value(str(
+                                computer_removed_card).split(" ")[0])):
                     self.take_stacks("player")
                     self.score(self.player.name)
 
                     input("Press any key for next round...\n")
-                elif int(self.card_value(str(player_removed_card).split(" ")[0])) < int(
-                        self.card_value(str(computer_removed_card).split(" ")[0])):
+                elif int(self.card_value(str(
+                        player_removed_card).split(" ")[0])) < int(
+                            self.card_value(str(
+                                computer_removed_card).split(" ")[0])):
                     self.take_stacks("computer")
                     self.score(self.computer.name)
 

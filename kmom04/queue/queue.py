@@ -13,7 +13,7 @@ class Queue:
 
     def __init__(self):
         """ Initialize class """
-    
+
         self.head = None
         self.tail = None
 
@@ -21,8 +21,8 @@ class Queue:
 
     def is_empty(self):
         """ Check if queue is empty """
-        
-        return self.head == None
+
+        return self.head is None
 
 
 
@@ -33,10 +33,10 @@ class Queue:
 
         if self.tail is not None:
             self.tail.next = new_node
-        
+
         self.tail = new_node
 
-        if self.head == None:
+        if self.head is None:
             self.head = new_node
 
 
@@ -80,7 +80,7 @@ class Queue:
 
     def peek_current(self):
         """ Peek the current value """
-        
+
         if self.tail is None:
             raise EmptyQueueException("Empty queue.")
 

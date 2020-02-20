@@ -51,10 +51,12 @@ class TestBst(unittest.TestCase):
         size = 10
         seq = utils.random_seq(size)
         utils.list_to_bst(seq, self.bst)
+
         r_seq = utils.random_seq_from_list(seq)
 
         for k in r_seq:
             v = seq.index(k)
+            print('k: {}, v: {}'.format(k, v))
             self.assertEqual(v, self.bst.remove(k))
             self.assertTrue(utils.is_bst(self.bst.root))
 

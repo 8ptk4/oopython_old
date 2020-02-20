@@ -15,7 +15,7 @@ class Handler:
     def __init__(self):
         """ Initialize class """
 
-        self.myList = Queue()
+        self.my_list = Queue()
         self.start()
 
 
@@ -40,17 +40,17 @@ class Handler:
             if val == "1":
                 print("\nAdd a value:")
                 value = input(">>> ")
-                self.myList.enqueue(value)
+                self.my_list.enqueue(value)
 
             elif val == "2":
                 print("\nRemove the next value:\n")
-                self.myList.dequeue()
+                self.my_list.dequeue()
 
             elif val == "3":
                 print("\nLook at the current value:\n")
 
                 try:
-                    print(self.myList.peek_current())
+                    print(self.my_list.peek_current())
                 except EmptyQueueException as e:
                     print(e)
 
@@ -58,23 +58,23 @@ class Handler:
                 print("\nLook at the next value\n")
 
                 try:
-                    print(self.myList.peek())
+                    print(self.my_list.peek())
                 except EmptyQueueException as e:
                     print(e)
 
             elif val == "5":
                 print("\nSize\n")
-                print(self.myList.size())
+                print(self.my_list.size())
 
             elif val == "6":
                 print("\nEmpty ?\n")
-                print(self.myList.is_empty())
+                print(self.my_list.is_empty())
 
             elif val == "7":
                 print("\nList all values\n")
 
                 try:
-                    self.myList.traverse()
+                    self.my_list.traverse()
                 except EmptyQueueException as e:
                     print(e)
 

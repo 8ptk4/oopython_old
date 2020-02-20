@@ -34,7 +34,8 @@ class Node():
         returnera True om noden har en left och en right child nod, annars False.
         """
 
-        return self.right and self.left is not None
+        if self.has_left_child() and self.has_right_child():
+            return True
 
 
 
@@ -43,7 +44,7 @@ class Node():
         returnera True om noden har en parent nod, annars False.
         """
 
-        pass
+        return self.parent is not None
 
 
 
@@ -52,7 +53,8 @@ class Node():
         returnera True om noden är left child till sin parent nod, annars False.
         """
 
-        pass
+        if self.has_parent() and self.key < self.parent:
+            return True
 
 
 
@@ -61,7 +63,8 @@ class Node():
         returnera True om noden är right child tills sin parent nod, annars False.
         """
 
-        pass
+        if self.has_parent() and self.key > self.parent:
+            return True
 
 
 

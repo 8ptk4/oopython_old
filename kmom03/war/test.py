@@ -3,10 +3,8 @@
 
 import unittest
 
-from card import Card
 from deck import Deck
 from hand import Hand
-from war import War
 
 class TestDeck(unittest.TestCase):
     """ Submodule for unittests, derives from unittest.TestCase """
@@ -57,9 +55,9 @@ class TestHand(unittest.TestCase):
         """ Create object for all tests """
 
         name = "Patrik"
-        hand = ["Ace of Heart", "2 of Spades", "King of Clover", "10 of Diamond"]
+        hand = ["Ace of Heart", "2 of Spades",
+                "King of Clover", "10 of Diamond"]
         self.hand = Hand(name, hand)
-
 
     def tearDown(self):
         """ Remove dependencies after test """
@@ -78,7 +76,7 @@ class TestHand(unittest.TestCase):
         self.assertEqual(self.hand.hand[3], "10 of Diamond")
 
     def test_picking_up_cards(self):
-        """ 
+        """
         Test so that picked up cards appends to the hand
         5 of Diamond should be first of the new hand
         """
@@ -98,7 +96,7 @@ class TestHand(unittest.TestCase):
         self.assertEqual(len(self.hand.hand), 3)
         self.assertEqual(played_card, "10 of Diamond")
 
-    def test_cards_remaining_after_round(self):
+    def test_cards_remaining(self):
         """ After playing a card test so remain cards is correct """
 
         self.hand.remove_card()
