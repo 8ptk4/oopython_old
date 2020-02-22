@@ -153,6 +153,131 @@
             arbetets gång.  
         </p>
         </hr>
+        <h3>Kmom04</h3>
+        <ol>
+            <li>Har du skapat egna datastrukturer förut?</li>
+            <li>Vilken typ av lista valde du att göra och varför?</li>
+            <li>Vilka exceptions skapade du? Hur gör man för att de ska kastas i listan?</li>
+            <li>Gjorde du någon extrauppgiften?</li>
+            <li>Vad är en länkad lista kontra en array?</li>
+            <li>Gick det bra att komma i gång med kursmomentet, var det lagom, för litet, för stort?</li>
+        </ol>
+        <hr>
+        <p>
+            Detta är första gången jag skapar egna datastrukturer istället för att använda mig utav python:s inbyggda 
+            datastrukturer där jag oftast använder mig utav en list och mot den kör append, insert, pop, count, reverse 
+            etc. Känner att jag använt mig utav de flesta varianter listade här:
+        </p>
+        <p>
+            https://docs.python.org/3/tutorial/datastructures.html
+        </p>
+        <p>
+            Började med Queue uppgiften och måste säga det att det ändå tog ett litet tag att förstå det hela med hur 
+            man använder Node objekt till att göra en liknelse utav Python's inbyggda lista. Ganska snabbt förstod man 
+            att, med hjälp utav att rita upp Node objekten och på så sätt få visualisera listan, gick allt mycket
+            enklare. Strukturen på den skapade listan följer en linjär data struktur nämligen en Cirkulär Enkellänkad 
+            lista. Detta eftersom den sista noden är länkad till den första "head" noden.
+        </p>
+        <p>
+            Nästa uppgift var att skapa en lista, en Unordered list. Tycker det mesta påminner om ovan uppgift där jag 
+            skapade en queue. Bara att man använder sig utav andra methoder. Efter att ha gjort queu uppgiften gick 
+            denna uppgift väldigt lätt att göra, då man nu fått en bra förståelse för hur man kopplar Node objekten med 
+            varandra. Trodde det skulle vara svårare än vad det var att lägga till nodes i mitten utav listan samt ta 
+            bort nodes på valda positioner pga. ombindning utav nodernas länkarna.
+        </p>
+        <p>
+            Under queue uppgiften skapade jag ett exception nämligen:
+        </p>
+        <li>EmptyQueueException</li>
+        <p>Triggas då man försöker kolla current value samt next value på en tom lista.</p>
+        <p>
+            Under list uppgiften finner man 2 exceptions nämligen:
+        </p>
+        <li>IndexErrorException</li>
+        <p>
+            Kastas om man försöker sätta in ett värde på ett index som inte exsisterar. Om man försöker byta ut ett 
+            värde på ett index som inte finns. Om man försöker hämta ett värde från ett index som inte finns. 
+        </p>
+        <li>ValueErrorException</li>
+        <p>
+            Kastas om man försöker hämta ett index från ett värde som inte finns eller om man försöker ta bort ett 
+            värde som inte finns.
+        </p>
+        <p>
+            Som svar på vad en länkad lista är kontra en array handlar nog svaret mest om hur dem hanterar sina index. 
+            En länkad lista har egentligen inga index utan är uppbyggd utav länkar som länkar varje nod med nästa nod. 
+            I en array däremot är värdena inte länkade med varandra utan dem tillhör bara sina respektive index.   
+        </p>
+        <p>
+            Allt som allt gick kursmomentet riktigt bra. Dels berode det nog mycket på att det fanns väldigt bra 
+            artiklar som var lätta att följa. Genom att se hur Andreas jobbade på förläsningarna med tavlan och man 
+            efterliknande och gjorde detsamma under uppgifterna gick allt också mycket enklare. Allt som allt känns 
+            det som ett lagom kursmoment.
+        </p>
+        <p>
+            Får självklart pylint errors för to-many-branches, försökte lägga in en ignore för det men fick det inte 
+            att fungera. Skulle kunnat gjort en "switch case"(finns inte för python) fast en annan variant istället. 
+            Men gjorde aldrig det.
+        </p>
+        </hr>
+        <h3>Kmom05</h3>
+        <ol>
+            <li>Vad är rekursion?</li>
+            <li>Känner du att du har förståelse för hur sorteringsalgoritmerna fungerar?</li>
+            <li>Vad tycker du om VisuAlgo?</li>
+            <li>Vad är big-O?</li>
+            <li>Gjorde du någon av extrauppgift?</li>
+            <li>Gick det bra att komma i gång med kursmomentet, var det lagom, för litet, för stort?</li>
+        </ol>
+        <hr>
+        <p>
+            Egentligen första gången jag sätter mig in i rekursiva funktioner. Är nästan helt säker på att jag använt 
+            mig utav det tidigare men läste aldrig på och satte mig in i termen. Efter lite research om rekursiva 
+            funktioner har jag bara sett varningar att man inte ska använda sig utav det och mestadels verkar det handla
+            om att det är slött och mer memory samt processor krävande.
+        </p>
+        <p>
+            Men åter till frågan, en rekursiv funktion är en funktion som på nått sätt anropar sig själv direkt eller 
+            via en annan funktion. Ett exempel på detta kan se ut som följande:
+        </p>
+        <li>- for-loop</li>
+        <code>
+            for i in range(0,5)
+	            print(i)
+        </code>
+        <li>- recusive </li>
+        <code>
+            def rec_range(n):
+                if not n <= 1: return rec_range(n-1) + (n-1,)
+                return (0,)
+        </code>
+        <p>
+            Kanske inte det bästa exemplet men det funkar och påvisar skillnaden.
+        </p>
+        <p>
+            Det var inte allt för svårt att förstå hur sorteringsalgoritmer fungerar. Finns algoritmer går igenom listan
+            och jämför intilliggande par med varandra och om dem ligger i fel ordning byter dem plats med varandra, 
+            proceduren pågår tills listan är helt sorterad (Bubble sort). Bubble sort kanske inte är att föredra det 
+            finns två andra varianter man i så fall bör använda nämligen Selection sort och Insertion sort där den 
+            sistnämnda är snabbast. Insertion sort fungerar i stora drag precis som när du sorterar dina kort på handen 
+            under ett kortspel. Man tar ett kort ittererar genom korten på handen och placerar det där den hör hemma och
+            tillslut har man en sorterad hand.
+        </p>
+        <p>
+            VisuAlgo är riktigt bra inte bara för att visualisera sorteringsalgoritmer utan också många andra typer utav
+            datastrukturer. När det kommer till sorteringsalgoritmerna på sidan, är det ett perfekt verktyg att få se 
+            hur allt fungerar både visuelt och hur det hanteras i kod. Denna sida hamnade direkt i bibloteket inför 
+            framtiden. 
+        </p>
+        <p>
+            För att enkelt förklara big-O, så är det ett "mätsätt" som på ett ungefärligt sätt beräknar hur lång tid en 
+            funktion tar på sig för att beräkna sin utdata.
+        </p>
+        <p>
+            Kursmomentet motsvarde ungefär föregående kursmoment, gick lätt att komma igång och var helt lagom 
+            storleksmässigt.
+        </p>
+        </hr>
     </div>
 </div>
 

@@ -5,7 +5,6 @@ import sys
 from unorderedlist import UnorderedList
 from errors import IndexErrorException
 from errors import ValueErrorException
-from errors import AttributeErrorException
 from sort import insertion_sort
 from sort import bubble_sort
 
@@ -23,7 +22,7 @@ class Handler:
 
 
     def start(self):
-        """ Start """ 
+        """ Start """
 
         while True:
             print("""
@@ -98,7 +97,7 @@ class Handler:
 
             elif val == "8":
                 print("\nShow all values in the list:")
-                
+
                 self.my_list.print_list()
 
             elif val == "9":
@@ -114,12 +113,12 @@ class Handler:
                 print("\nSort list with Insertion Sort")
                 insertion_sort(self.my_list)
                 print(">> Unordered List now sorted with Insertion Sort <<")
-            
+
             elif val == "11":
                 print("Sort list with Bubble Sort")
                 bubble_sort(self.my_list)
                 print(">> Unordered List now sorted with Bubble Sort <<")
-    
+
             elif val == "exit":
                 sys.exit()
 

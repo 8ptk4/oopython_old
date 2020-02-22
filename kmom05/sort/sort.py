@@ -26,7 +26,7 @@ def insertion_sort(lst):
 
                 while temp.data > inpos.next.data:
                     inpos = inpos.next
-                
+
                 temp.next = inpos.next
                 inpos.next = temp
 

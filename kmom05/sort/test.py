@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-""" Unordered list - unittest - KMOM04 """
+""" Unordered list - unittest - KMOM05 """
 
 import unittest
 from unorderedlist import UnorderedList
 from errors import IndexErrorException
 from errors import ValueErrorException
 from sort import bubble_sort
-from node import Node
 
 class TestUnorderedList(unittest.TestCase):
     """ Submodule for unittests, derives from unittest.TestCase """
@@ -34,14 +33,18 @@ class TestUnorderedList(unittest.TestCase):
         # List looks like this 0: Patrik 1: Karlsson
 
         # Trying to insert new value at index 3 and -1 should raise exception
-        self.assertRaises(IndexErrorException, self.unordered_list.insert, int(3), "test")
-        self.assertRaises(IndexErrorException, self.unordered_list.insert, int(-1), "test")
+        self.assertRaises(IndexErrorException,
+                          self.unordered_list.insert, int(3), "test")
+        self.assertRaises(IndexErrorException,
+                          self.unordered_list.insert, int(-1), "test")
 
-        # Trying to insert new value at index 0 should work and not raise exception
+        # Trying to insert new value at index 0 should work and not raise
+        # exception
         self.unordered_list.insert(int(0), "test")
         # 0: test 1: Patrik 2: Karlsson
 
-        # Trying to insert new value at index 3 should work and not raise exception
+        # Trying to insert new value at index 3 should work and not raise
+        # exception
         self.unordered_list.insert(int(3), "test2")
         # 0: test 1: Patrik 2: Karlsson 3: test2
 
@@ -53,10 +56,12 @@ class TestUnorderedList(unittest.TestCase):
 
     def test_set(self):
         """ Test method set """
-    
+
         # Trying to replace new value at index 2 or -1 should raise exception
-        self.assertRaises(IndexErrorException, self.unordered_list.set, int(2), "test")
-        self.assertRaises(IndexErrorException, self.unordered_list.set, int(-1), "test")
+        self.assertRaises(IndexErrorException,
+                          self.unordered_list.set, int(2), "test")
+        self.assertRaises(IndexErrorException,
+                          self.unordered_list.set, int(-1), "test")
 
         # Replace a valid index value and check so that the value = new value
         self.unordered_list.set(int(0), "test")
@@ -68,8 +73,10 @@ class TestUnorderedList(unittest.TestCase):
         """ Test method get """
 
         # Trying to get value at index 2 or -1 should raise exception
-        self.assertRaises(IndexErrorException, self.unordered_list.get, int(2))
-        self.assertRaises(IndexErrorException, self.unordered_list.get, int(-1))
+        self.assertRaises(IndexErrorException,
+                          self.unordered_list.get, int(2))
+        self.assertRaises(IndexErrorException,
+                          self.unordered_list.get, int(-1))
 
         # Test get value at indec 0 and 1 should return Patrik and Karlsson
         self.assertEqual(self.unordered_list.get(int(0)), "Patrik")
@@ -81,8 +88,10 @@ class TestUnorderedList(unittest.TestCase):
         """ Test index_of method """
 
         # Trying to get value at index 2 or -1 should raise exception
-        self.assertRaises(ValueErrorException, self.unordered_list.index_of, "Patrik_test")
-        self.assertRaises(ValueErrorException, self.unordered_list.index_of, "Karlsson_test")
+        self.assertRaises(ValueErrorException,
+                          self.unordered_list.index_of, "Patrik_test")
+        self.assertRaises(ValueErrorException,
+                          self.unordered_list.index_of, "Karlsson_test")
 
         # Test get index for Patrik and Karlsson should return 0 and 1
         self.assertEqual(self.unordered_list.index_of("Patrik"), 0)
@@ -94,7 +103,8 @@ class TestUnorderedList(unittest.TestCase):
         """ Test remove method """
 
         # Trying to remove a value that doesnt exist should raise exception
-        self.assertRaises(ValueErrorException, self.unordered_list.remove, "test")
+        self.assertRaises(ValueErrorException,
+                          self.unordered_list.remove, "test")
 
         # Before removing items in list should be 2
         self.assertEqual(self.unordered_list.size(), 2)
@@ -118,7 +128,7 @@ class TestSort(unittest.TestCase):
         """ Remove dependencies after test """
 
         self.unordered_list = []
-    
+
     def test_list_ordered(self):
         """ Test Bubble Sort """
 
@@ -145,14 +155,14 @@ class TestSort(unittest.TestCase):
         self.assertEqual(current_node.data, 4)
         current_node = current_node.next
         self.assertEqual(current_node.data, 8)
-    
+
     def test_list_ordered_str(self):
         """ Test Bubble Sort with string values """
 
         self.unordered_list.add("c")
         self.unordered_list.add("b")
         self.unordered_list.add("a")
-        
+
         # First test so the unordered list is following the pattern
         # c -> b -> a
         current_node = self.unordered_list.head

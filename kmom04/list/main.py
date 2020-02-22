@@ -5,7 +5,6 @@ import sys
 from unorderedlist import UnorderedList
 from errors import IndexErrorException
 from errors import ValueErrorException
-from errors import AttributeErrorException
 
 class Handler:
     """ Handler class """
@@ -21,7 +20,7 @@ class Handler:
 
 
     def start(self):
-        """ Start """ 
+        """ Start """
 
         while True:
             print("""

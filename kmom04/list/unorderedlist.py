@@ -4,7 +4,6 @@
 from node import Node
 from errors import IndexErrorException
 from errors import ValueErrorException
-from errors import AttributeErrorException
 
 class UnorderedList:
     """ Unordered list class"""
@@ -19,8 +18,8 @@ class UnorderedList:
 
     def is_empty(self):
         """ Return True/False if list is empty or not """
-        
-        return self.head == None
+
+        return self.head is None
 
 
 
@@ -34,16 +33,19 @@ class UnorderedList:
             self.head = new_node
 
             return None
-        
+
         while current_node.next is not None:
             current_node = current_node.next
-        
+
         current_node.next = new_node
 
 
 
     def insert(self, index, data):
-        """ Add new node at a specific index, raise exception if index doesnt excist """
+        """
+        Add new node at a specific index, raise exception if index
+        doesnt excist
+        """
 
         current_node = self.head
         new_node = Node(data)
@@ -70,19 +72,22 @@ class UnorderedList:
 
 
     def set(self, index, data):
-        """ Replace value at a specific index, raise exception if index doesnt excist """
+        """
+        Replace value at a specific index, raise exception if
+        index doesnt excist
+        """
 
         current_node = self.head
 
         i = 0
-    
+
         if index > (self.size() - 1) or index < 0:
             raise IndexErrorException("Error: Index doesnt exist")
 
         while current_node is not None:
             if i == index:
                 current_node.data = data
-        
+
             i += 1
             current_node = current_node.next
 
@@ -90,9 +95,9 @@ class UnorderedList:
 
     def size(self): # Integer
         """ Return amount of elements in the list """
-    
+
         current_node = self.head
-        
+
         i = 0
         while current_node is not None:
             i += 1
@@ -111,17 +116,20 @@ class UnorderedList:
         while current_node is not None:
             if i == index:
                 return current_node.data
-        
+
             i += 1
             current_node = current_node.next
 
-        raise IndexErrorException("IndexError: Out of index")
+        raise IndexErrorException("Error: Out of index")
 
 
 
     def index_of(self, data):
-        """ Return the index of a specific value, if values doesnt excist raise exception """
-        
+        """
+        Return the index of a specific value, if values doesnt
+        excist raise exception
+        """
+
         current_node = self.head
 
         i = 0
@@ -132,7 +140,7 @@ class UnorderedList:
             i += 1
             current_node = current_node.next
 
-        raise ValueErrorException("ValueError: No index with that value")
+        raise ValueErrorException("ValueError: No  index with that value")
 
 
 
@@ -149,7 +157,10 @@ class UnorderedList:
 
 
     def remove(self, data):
-        """ Remove node matching a specific value, if values doesnt excist raise exception """
+        """
+        Remove node matching a specific value, if values doesnt
+        excist raise exception
+        """
 
         current_node = self.head
         previous_node = None

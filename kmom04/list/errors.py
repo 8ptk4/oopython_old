@@ -14,10 +14,3 @@ class ValueErrorException(Exception):
 
     """ Value Exception """
     pass
-
-
-
-class AttributeErrorException(Exception):
-    """ Attribute Exception """
-
-    pass

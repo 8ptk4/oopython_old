@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+""" Binary Search Tree - KMOM06 """
+
 from node import Node
 
 class BinarySearchTree():
@@ -53,9 +56,9 @@ class BinarySearchTree():
 
         if node.has_left_child():
             BinarySearchTree._print_nodes(node.left)
-        
+
         print(node.value)
-        
+
         if node.has_right_child():
             BinarySearchTree._print_nodes(node.right)
 
@@ -63,7 +66,7 @@ class BinarySearchTree():
 
     def get(self, key):
         """
-        Returnera value från noden med nyckeln key. Om key inte finns i 
+        Returnera value från noden med nyckeln key. Om key inte finns i
         trädet lyft ett KeyError exception (det inbyggda).
         """
 
@@ -88,7 +91,7 @@ class BinarySearchTree():
 
 
     def remove(self, key):
-        """ delete the node with the given key and return the 
+        """ delete the node with the given key and return the
         root node of the tree """
 
         return self._remove(BinarySearchTree._get(self.root, key))
@@ -189,5 +192,3 @@ bst.inorder_traversal_print()
 bst.remove(5)
 #bst.remove(12)
 bst.inorder_traversal_print()
-
-

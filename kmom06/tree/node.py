@@ -1,5 +1,5 @@
-
-
+#!/usr/bin/python3
+""" Node - KMOM06 """
 
 class Node():
     """ class """
@@ -31,7 +31,8 @@ class Node():
 
     def has_both_children(self):
         """
-        returnera True om noden har en left och en right child nod, annars False.
+        returnera True om noden har en left och en right child nod, annars
+        False.
         """
 
         if self.has_left_child() and self.has_right_child():
@@ -60,7 +61,8 @@ class Node():
 
     def is_right_child(self):
         """
-        returnera True om noden är right child tills sin parent nod, annars False.
+        returnera True om noden är right child tills sin parent nod, annars
+        False.
         """
 
         if self.has_parent() and self.key > self.parent:
@@ -73,8 +75,7 @@ class Node():
 
         if isinstance(other, Node):
             return self.key < other.key
-        else:
-            return self.key < other
+        return self.key < other
 
 
 
@@ -83,8 +84,7 @@ class Node():
 
         if isinstance(other, Node):
             return self.key > other.key
-        else:
-            return self.key > other
+        return self.key > other
 
 
 
@@ -93,5 +93,4 @@ class Node():
 
         if isinstance(other, Node):
             return self.key == other.key
-        else:
-            return self.key == other
+        return self.key == other
