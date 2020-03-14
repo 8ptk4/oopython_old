@@ -278,6 +278,34 @@
             storleksmässigt.
         </p>
         </hr>
+        <h3>Kmom06</h3>
+        <ol>
+            <li>Vad är ett Binärt sökträd?</li>
+            <li>Hur gick det att skriva de rekursiva funktionerna?</li>
+            <li>Vad är Inorder, Preorder och Postorder när man pratar om traversera träd?</li>
+            <li>Vad är en Hash table?</li>
+            <li>Kan du jämföra och resonera kring de olika datastrukturerna vi gått igenom i kursen? Vilken passar till vad?</li>
+            <li>Gick det bra att utföra kursmomentet?</li>
+        </ol>
+        <hr>
+        <p>
+            Då efter att ha jobbat med ett binärt sökträd är min förståelse att man alltid har ett start värde, själva roten utav trädet. När trädet sen växer och förgrenar sig utåt hamnar alltid dem största skotten till höger och dem minsta till vänster. Varje förgrening kan enbart ha två skott. När man nu har ett binärt sökträd så finns det olika sätt att traversera sig i genom trädet. Med Inorder menas att man först går igenom det vänstra delträdet sen går till rooten och vidare igenom det högra delträdet. Ett annat sätt är Preorder där man utgår först mot rooten och sen vidare ner genom vänstra delträdet för att sist gå ner genom högra delträdet. Med hjälp utav Postorder går man istället genom det vänstra delträdet sen genom det högra delträdet för att slutligen gå till rooten. Detta är inte så lätt att förklara med ord, hade jag använt mig utav bilder skulle man få en tydlig förståelse för hur det fungerar.
+        </p>
+        <p>
+            Efter förra kursmomentent kändes det faktiskt väldigt lugnt med att skriva dem rekursiva funktioner som behövdes för uppgiften. Även fast jag säkert inte skulle använda mig utav rekursiva funktioner i framtiden(pga all negativitet kring det) så känns det ändå som en bra grej att förstå. Jag stötte inte på några krångligheter kring det vad jag kan minnas.
+        </p>
+        <p>
+            Det svåra vad att skapa remove metoden för trädet och specielt att få den att få den vara rekursiv. Då jag redan hade en metod som traverserar och hämtar en önskade nod, behövdes inte funktionalitet för detta i delete metoden. Därutav kunde jag enbart fokusera på att kolla om 1. Om noden inte har några barn, 2. Om noden har båda sina barn, 3. Om noden enbart har vänstra barnet eller 4. Om noden enbart har högra barnet. Med hjälp utav dessa olika steg kan man lätt itterera och utföra omlänkningar om så behövs vid bortagande av en specific Node. Uppgiften slutade med att jag gjorde en enklare variant utav en delete metod, då jag tidigare gjort två andra varianter men inte fått dem att passera det inbyggda testet(Undrar om den verkligen fungerar som den ska, då jag tycker att mina egna testningar utav programmet gör vad den ska göra). Jag får gå tillbaka och kolla på det senare helt enkelt.
+        </p>
+        <p>
+            Dem datastrukturer jag kan minnas vi jobbat med under kursen är: Array, Linked List, Stack, Queue, Binary Search Tree.
+        </p>
+        <p>
+            Fördelen med länkade listor(Stack, Queue som jag använt mig utav) är att dem är väldigt effektiva när det kommer till att sätta in samt ta bort värden. Om vi däremot vill accessa värden så är det betydligt långsammare än t.ex. Arrays. Efter lite research fick jag också reda lite på om Binary Search Tree. Binary Search Tree används oftast när man har ett konstant flöde utav ingående samt utgående data, vilket oftast används utav map som finns inom många språk. Det verkar finnas oändligt med information inom detta område, men något jag ska ta med mig och kolla vidare på är komplexiteter som ofta tas upp i dessa sammanhang.
+        </p>
+        <p>
+            Överlag var det ett ok kursmoment, känns dock som att något saknades men kan inte sätta ord på det. Kursmomentet var inte lika kul att ta sig igenom som de föregående. Egentligen handlade kursmomentet om att göra en remove metod till ett Binary Search Tree och bara få det att gå igenom några fördefinerade tester som man egentligen inte behövde bry sig om.
+        </p>
     </div>
 </div>
 

@@ -91,27 +91,25 @@ class BinarySearchTree():
 
 
     def remove(self, key):
-        """ delete the node with the given key and return the
-        root node of the tree """
+        """ Delete node """
 
-        return self._remove(self, BinarySearchTree._get(self.root, key))
+        return self._remove(BinarySearchTree._get(self.root, key))
 
 
 
     @staticmethod
-    def _remove(self, node):
-        """ """
+    def _remove(node):
+        """ Delete node """
 
         node_to_return = node.value
 
         # Case 1 (node has no children)
         if node.has_left_child() and node.has_right_child() is None:
-            if node == self.root:
-                self.root = None
+            if node == BinarySearchTree.root:
+                BinarySearchTree.root = None
             elif node.is_left_child():
                 node.parent.left = None
-            else:
-                node.parent.right = None
+            node.parent.right = None
 
         # Case 2 (node has two children)
         elif node.has_both_children():
@@ -124,24 +122,22 @@ class BinarySearchTree():
                 successor.parent.right = successor.right
 
         # Case 3 (node has left child)
-        elif node.has_left_child():
-            if node.has_parent():
-                if node.is_left_child():
-                    node.parent.left = node.left
-                else:
-                    node.parent.right = node.left
+        elif node.has_left_child() and node.has_parent():
+            if node.is_left_child():
+                node.parent.left = node.left
             else:
-                self.root = node.left
+                node.parent.right = node.left
+
+            BinarySearchTree.root = node.left
 
         # Case 4 (node has right child)
-        elif node.has_right_child():
-            if node.has_parent():
-                if node.is_left_child():
-                    node.parent.left = node.right
-                else:
-                    node.parent.right = node.right
+        elif node.has_right_child() and node.has_parent():
+            if node.is_left_child():
+                node.parent.left = node.right
             else:
-                self.root = node.right
+                node.parent.right = node.right
+
+            BinarySearchTree.root = node.right
 
         return node_to_return
 
