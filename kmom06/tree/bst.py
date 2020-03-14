@@ -94,10 +94,11 @@ class BinarySearchTree():
         """ delete the node with the given key and return the
         root node of the tree """
 
-        return self._remove(BinarySearchTree._get(self.root, key))
+        return self._remove(self, BinarySearchTree._get(self.root, key))
 
 
 
+    @staticmethod
     def _remove(self, node):
         """ """
 
@@ -105,15 +106,18 @@ class BinarySearchTree():
 
         # Case 1 (node has no children)
         if node.has_left_child() and node.has_right_child() is None:
-            self.remove_node_is_leaf(node)
+            if node == self.root:
+                self.root = None
+            elif node.is_left_child():
+                node.parent.left = None
+            else:
+                node.parent.right = None
 
         # Case 2 (node has two children)
         elif node.has_both_children():
-
             successor = BinarySearchTree._find_successor(node.right)
             node.key = successor.key
             node.value = successor.value
-
             if successor.is_left_child():
                 successor.parent.left = successor.right
             else:
@@ -121,74 +125,31 @@ class BinarySearchTree():
 
         # Case 3 (node has left child)
         elif node.has_left_child():
-            self.remove_node_has_left_child(node)
+            if node.has_parent():
+                if node.is_left_child():
+                    node.parent.left = node.left
+                else:
+                    node.parent.right = node.left
+            else:
+                self.root = node.left
 
         # Case 4 (node has right child)
         elif node.has_right_child():
-            self.remove_node_has_right_child(node)
-
+            if node.has_parent():
+                if node.is_left_child():
+                    node.parent.left = node.right
+                else:
+                    node.parent.right = node.right
+            else:
+                self.root = node.right
 
         return node_to_return
 
 
 
-    def remove_node_is_leaf(self, node):
-        """remove node that has no children"""
-        if node == self.root:
-            self.root = None
-        elif node.is_left_child():
-            node.parent.left = None
-        else:
-            node.parent.right = None
-
-
-
-    def remove_node_has_left_child(self, node):
-        """return node that has left child"""
-        if node.has_parent():
-            if node.is_left_child():
-                node.parent.left = node.left
-            else:
-                node.parent.right = node.left
-        else:
-            self.root = node.left
-
-
-
-    def remove_node_has_right_child(self, node):
-        """return value of node that has right child """
-        if node.has_parent():
-            if node.is_left_child():
-                node.parent.left = node.right
-            else:
-                node.parent.right = node.right
-        else:
-            self.root = node.right
-
-
-
     @staticmethod
     def _find_successor(successor):
-        """return successor
-        the node bigger than current node but smaller than nodes child.
-        """
+        """ return successor """
         if successor.left is None:
             return successor
         return BinarySearchTree._find_successor(successor.left)
-
-bst = BinarySearchTree()
-bst.insert(5, "five")
-bst.insert(4, "four")
-bst.insert(6, "six")
-bst.insert(10, "ten")
-bst.insert(9, "nine")
-bst.insert(11, "eleven")
-
-
-bst.inorder_traversal_print()
-#bst.insert(5, 22)#
-
-#print(bst.get(4))
-bst.remove(5)
-#bst.remove(12)
-bst.inorder_traversal_print()
