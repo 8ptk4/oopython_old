@@ -53,10 +53,10 @@ dbwebb.ready_to_begin()
 #
 
 def recursive_sum(head, tail):
+    """ Docstring """
     if head <= tail:
         return head + recursive_sum((head + 1), tail)
-    else: 
-        return 0
+    return 0
 
 ANSWER = recursive_sum(18, 35)
 
@@ -75,16 +75,17 @@ dbwebb.assert_equal("1.1", ANSWER, False)
 # Write your code below and put the answer into the variable ANSWER.
 #
 
-sum = [4, 5, 6, 11, 9, 1, 2, 3, 8]
+sum_array = [4, 5, 6, 11, 9, 1, 2, 3, 8]
 
-def recursive_sum(sum):
-    
-    if len(sum) == 0:
+def recursive_sum_two(arr):
+    """ Docstring """
+
+    arr_length = len(arr)
+    if arr_length == 0:
         return 0
-    else:
-        return sum[0] + recursive_sum(sum[1:])
+    return arr[0] + recursive_sum_two(arr[1:])
 
-ANSWER = recursive_sum(sum)
+ANSWER = recursive_sum_two(sum_array)
 
 # I will now test your answer - change false to true to get a hint.
 dbwebb.assert_equal("1.2", ANSWER, False)
@@ -102,16 +103,19 @@ dbwebb.assert_equal("1.2", ANSWER, False)
 # Write your code below and put the answer into the variable ANSWER.
 #
 
-numbers = [4, 5, 6, 11, 9, 1, 2, 3, 8]
+numbers_array = [4, 5, 6, 11, 9, 1, 2, 3, 8]
 
 def recursive_search(numbers, index, value):
+    """ Docstring """
+
     if not numbers:
         return -1
     elif numbers[0] == value:
         return index
-    return numbers[0] == value or recursive_search(numbers[1:], (index + 1), value)
+    return numbers[0] == value or recursive_search(
+        numbers[1:], (index + 1), value)
 
-ANSWER = recursive_search(numbers, 0, 2)
+ANSWER = recursive_search(numbers_array, 0, 2)
 
 # I will now test your answer - change false to true to get a hint).
 dbwebb.assert_equal("1.3", ANSWER, False)
@@ -127,9 +131,9 @@ dbwebb.assert_equal("1.3", ANSWER, False)
 # Write your code below and put the answer into the variable ANSWER.
 #
 
-numbers = [4, 5, 6, 11, 9, 1, 2, 3, 8]
+numbers_array_two = [4, 5, 6, 11, 9, 1, 2, 3, 8]
 
-ANSWER = recursive_search(numbers, 0, 19)
+ANSWER = recursive_search(numbers_array_two, 0, 19)
 
 # I will now test your answer - change false to true to get a hint.
 dbwebb.assert_equal("1.4", ANSWER, False)
@@ -146,10 +150,12 @@ dbwebb.assert_equal("1.4", ANSWER, False)
 #
 
 def recursive_power(num, exp):
-    if (exp == 1):
+    """ Docstring """
+
+    if exp == 1:
         return num
-    if (exp != 1):
-        return (num * recursive_power(num, exp - 1))
+    if exp != 1:
+        return num * recursive_power(num, exp - 1)
 
 ANSWER = recursive_power(5, 6)
 
@@ -168,10 +174,11 @@ dbwebb.assert_equal("1.5", ANSWER, False)
 #
 
 def recursion_reverse(string):
-    if string is "":
-        return string
-    else: 
+    """ Docstring """
+
+    if string:
         return string[-1] + recursion_reverse(string[:-1])
+    return string
 
 ANSWER = recursion_reverse("Backwards")
 
